@@ -1322,18 +1322,8 @@ public abstract class BeanUtils {
             case "UpperCaseWithUnderScores": {
                 return underScores(methodName, prefixLength, true);
             }
-            case "UpperCase": {
-                char[] chars = new char[methodNameLength - prefixLength];
-                methodName.getChars(prefixLength, methodNameLength, chars, 0);
-                char c0 = chars[0];
-                for (int i = 0; i < chars.length; i++) {
-                    char ch = chars[i];
-                    if (ch >= 'a' && c0 <= 'z') {
-                        chars[i] = (char) (ch - 32);
-                    }
-                }
-                return new String(chars);
-            }
+            case "UpperCase":
+                return methodName.substring(prefixLength).toUpperCase();
             case "CamelCase1x": {
                 char[] chars = new char[methodNameLength - prefixLength];
                 methodName.getChars(prefixLength, methodNameLength, chars, 0);

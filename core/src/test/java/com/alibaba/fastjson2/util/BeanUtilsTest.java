@@ -69,6 +69,8 @@ public class BeanUtilsTest {
         assertEquals("Id", BeanUtils.setterName("setId", "PascalCase"));
 
         assertEquals("USERID", BeanUtils.setterName("setUserId", "UpperCase"));
+        assertEquals("ID名", BeanUtils.setterName("setId名", "UpperCase"));
+        assertEquals("名ID", BeanUtils.setterName("set名Id", "UpperCase"));
         assertEquals("USER_ID", BeanUtils.setterName("setUserId", "UpperCaseWithUnderScores"));
 
         assertThrows(Exception.class, () -> BeanUtils.setterName("setUserId", "x"));
